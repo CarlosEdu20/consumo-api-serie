@@ -1,11 +1,17 @@
 package org.example.screenmetch2;
 
+import org.example.screenmetch2.model.DadosEpisodio;
 import org.example.screenmetch2.model.DadosSerie;
+import org.example.screenmetch2.model.DadosTemporada;
+import org.example.screenmetch2.principal.Menu;
 import org.example.screenmetch2.servicos.ConsumirApi;
 import org.example.screenmetch2.servicos.ConverterDados;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 public class  Screenmetch2Application implements CommandLineRunner {
@@ -17,11 +23,11 @@ public class  Screenmetch2Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        var consumirApi = new ConsumirApi();
-        var json = consumirApi.obterDados("https://www.omdbapi.com/?t=gilmore+girls&apikey=9dcffd08");
-        System.out.println(json);
-        ConverterDados converterDados = new ConverterDados();
-        DadosSerie dadosSerie = converterDados.obterDados(json, DadosSerie.class);
-        System.out.println(dadosSerie);
+         Menu menu = new Menu();
+         menu.exibeMenu();
+
+
+
+
     }
 }
